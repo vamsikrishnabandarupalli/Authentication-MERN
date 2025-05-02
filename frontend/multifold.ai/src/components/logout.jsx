@@ -6,11 +6,12 @@ const Logout = () => {
     try {
       await API.post('/logout');
       localStorage.removeItem('accessToken');
-      window.location.href = '/'; 
+      window.location.href = '/';
     } catch (error) {
       console.error('Logout failed', error);
     }
   };
+  
 
   return (
     <button onClick={handleLogout} className="btn btn-danger">

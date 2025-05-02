@@ -5,11 +5,13 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  refreshTokens: [{ type: String }],
 }, { timestamps: true });
 
 userSchema.methods.toJSON = function () {
   const obj = this.toObject();
   delete obj.password;
+  delete obj.refreshTokens;
   return obj;
 };
 
